@@ -32,7 +32,7 @@ export const Register = ({ switchAuthHandler }) => {
       isValid: false,
       showError: false,
     },
-    username: {
+    userName: {
       value: "",
       isValid: false,
       showError: false,
@@ -61,7 +61,7 @@ export const Register = ({ switchAuthHandler }) => {
       case "passwordConfir":
         isValid = validateConfirPassword(formState.password.value, value);
         break;
-      case "username":
+      case "userName":
         isValid = validateUsername(value);
         break;
       default:
@@ -79,17 +79,16 @@ export const Register = ({ switchAuthHandler }) => {
 
   const handleRegister = (event) => {
     event.preventDefault();
-    register(formState.email.value, formState.password.value, formState.username.value);
+    register(formState.email.value, formState.password.value, formState.userName.value);
   };
 
   const isSubmitButtonDisabled = isLoading || 
                                 !formState.password.isValid || 
                                 !formState.email.isValid ||
                                 !formState.passwordConfir.isValid ||
-                                !formState.username.isValid;
+                                !formState.userName.isValid;
   return (
     <div className="register-container">
-      <Logo text={"Register to Kinal Cast"} />
       <form className="auth-form">
         <Input
           field="email"
@@ -102,13 +101,13 @@ export const Register = ({ switchAuthHandler }) => {
           validationMessage={emailValidationMessage}
         />
         <Input
-          field="username"
+          field="userName"
           label="Username"
-          value={formState.username.value}
+          value={formState.userName.value}
           onChangeHandler={handleInputValueChange}
           type="text"
           onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.username.showError}
+          showErrorMessage={formState.userName.showError}
           validationMessage={validateUsernameMessage}
         />
         <Input
