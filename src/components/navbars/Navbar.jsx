@@ -22,6 +22,14 @@ export const Navbar = () => {
     navigate('/publications')
   }
 
+  const handleNavigateToAddCommentsPage = () => {
+    navigate('/addComments')
+  }
+
+  const handleNavigateToAddPublicationsPage = () => {
+    navigate('/addPublications')
+  }
+
   const handleLogout = () => {
     logout()
   }
@@ -34,6 +42,8 @@ export const Navbar = () => {
           <NavButton text="LOGIN" onClickHandler={handleNavigateToAuthPage} />
         ) : (
           <div>
+            <NavButton text="ADD PUBLICATIONS" onClickHandler={handleNavigateToAddPublicationsPage}/>
+            <NavButton text="ADD COMMENTS" onClickHandler={handleNavigateToAddCommentsPage}/>
             <NavButton text="LOGOUT" onClickHandler={handleLogout} />
           </div>
         )}
