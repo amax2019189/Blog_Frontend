@@ -42,6 +42,29 @@ export const register = async (data) => {
     }
 }
 
+export const getPublications = async () => {
+    try {
+        return await apiClient.get('/publications')
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const getCommentsDetails = async () => {
+    try {
+        return await apiClient.get(`/comments`)
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+/*
 const checkResponseStatus = (e) => {
     const responseStatus = e?.response?.status
 
@@ -49,3 +72,4 @@ const checkResponseStatus = (e) => {
         (responseStatus === 401 || responseStatus === 403) && logout
     }
 }
+*/

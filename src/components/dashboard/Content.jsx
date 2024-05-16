@@ -1,15 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import { Channels } from "../channel/Channels";
-import { Settings } from "../settings/Settings";
-import { ChannelView } from "../channel/ChannelView";
+import { Publications } from "../publications/Publications";
+import { CommentsView } from "../publications/CommentsView";
 
-export const Content = ({channels, getChannels}) => {
+export const Content = ({publications, getComments}) => {
     return(
         <div className="content-container">
             <Routes>
-                <Route path="settings" element={<Settings/>}/>
-                <Route path="channels" element={<Channels channels={channels}/>}/>
-                <Route path="channel/:id" element={<ChannelView getChannels={getChannels}/>}/>
+                <Route path="publications" element={<Publications publications={publications}/>}/>
+                <Route path="publications/:id" element={<CommentsView getComments={getComments}/>}/>
             </Routes>
         </div>
     )

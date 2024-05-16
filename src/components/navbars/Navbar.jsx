@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/img/EscudoPeque.svg";
 import { useUserDetails } from "../../shared/hooks";
 
 const NavButton = ({ text, onClickHandler }) => {
@@ -20,12 +18,8 @@ export const Navbar = () => {
     navigate('/auth')
   }
 
-  const handleNavigateToSettingsPage = () => {
-    navigate('/settings')
-  }
-
-  const handleNavigateToChannelsPage = () => {
-    navigate('/channels')
+  const handleNavigateToPublicationsPage  = () => {
+    navigate('/publications')
   }
 
   const handleLogout = () => {
@@ -34,15 +28,13 @@ export const Navbar = () => {
 
   return (
     <div className="nav-container">
-      <NavLogo />
       <div className="nav-buttons-container">
-        <NavButton text="Browse" onClickHandler={handleNavigateToChannelsPage} />
+        <NavButton text="BLOG" onClickHandler={handleNavigateToPublicationsPage} />
         {!isLogged ? (
-          <NavButton text="Login" onClickHandler={handleNavigateToAuthPage} />
+          <NavButton text="LOGIN" onClickHandler={handleNavigateToAuthPage} />
         ) : (
           <div>
-            <NavButton text="My Account" onClickHandler={handleNavigateToSettingsPage} />
-            <NavButton text="Logout" onClickHandler={handleLogout} />
+            <NavButton text="LOGOUT" onClickHandler={handleLogout} />
           </div>
         )}
       </div>
